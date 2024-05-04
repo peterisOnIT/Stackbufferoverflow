@@ -82,3 +82,16 @@ After
 ----------------------------------------------------------------------------------------------------------
 
 # Auth Overflow 2
+
+Exploit_2.sh
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/51a6ffd2-7193-42b1-8ea6-059058d975c3)
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/c785d474-a429-47bf-bc5d-9fc888f4f695)
+
+### Analyzing the GDB Output
+
+-Password is pointing to a memory region filled predominantly with 'A' characters, followed by "BBBB", which seems intended to overwrite a return address or similar critical pointer.
+-The memory dump shows how the buffer password_buffer has been overwritten with these 'A's, and possibly adjacent memory as well.
+-rip (the instruction pointer) at 0x4011c6 points to where in the code the breakpoint was hit. This means the function has not returned yet, so the full impact of overwriting "BBBB" may not yet be visible in the instruction pointer.
+-rsp (the stack pointer) and other registers show where various pieces of data are relative to each other in memory.
+
