@@ -85,6 +85,8 @@ After
 Exploit_2.sh
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/51a6ffd2-7193-42b1-8ea6-059058d975c3)
 
+### Analyzing the GDB Output
+
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/32ab4a1f-4623-48ff-8db1-f1c5d1d34c7b)
 
 buffer might be stored near the base pointer ($bp), rather than the stack pointer, given typical function call conventions. Let's examine memory around the base pointer and look for our sequence of 'A's
@@ -107,7 +109,7 @@ As expected, the overflow cannot disturb the auth_flag variable, since it's loca
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/553e00c8-0fdf-4f82-ac62-2c466e7423b9)
 
 
-### Analyzing the GDB Output
+
 
 
 
@@ -121,4 +123,11 @@ there's an issue with the payload length in a software exploitation context, lik
 
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/dfdbb6e6-3e24-4b2e-ba99-7f3c5be7f834)
 
+
+
+
+
+
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/902c765f-08de-442c-b7b7-4a6ddb598d69)
 
