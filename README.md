@@ -48,17 +48,19 @@ Next steps to exploit the vulnerability
 
 I am going to debugging with GDB
 
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/05a2abea-68a1-47b4-829e-4decca93be17)
 
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/083d33e3-5152-4e3e-abc4-3f3fb092aa7a)
+The first breakpoint is before the strcpy() happens. By examining the password_buffer pointer, the debugger shows it is filled with random uninitialized data and is located at  0xbffff7a0 in memory By examining the address of the auth_flag variable, we can see both its location at 0xbffff7bc and its value of 0. The print command can be used to do arithmetic and shows that auth_flag is 28 bytes past the start of password_buffer. This relationship can also be seen in a block of memory starting at password_buffer. The location of auth_flag is shown in bold.
 
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/ea0a6fce-2488-4cc6-8fb0-409ef9cdd283)
-
-
-
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/660d22fe-66fc-4a6a-8909-e64ab082c972)
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/a3eb7620-b54b-4076-918f-df12a5d5dc4f)
 
 
-The pointer password points to the buffer that has been overflowed with 16 'A's followed by "BBBB". This shows that the buffer overflow vulnerability. This kind of overflow can lead to various security risks including unauthorized access, execution of malicious code, and data corruption, depending on what memory areas are affected beyond the overwritten buffer.
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/e582ff07-6459-4f39-8926-436d66306b9a)
+
+
+Continuing to the next breakpoint found after the strcpy(), these memory locations are examined again. The password_buffer overflowed into the auth_flag, changing its first two bytes to 0x41. The value of 0x00004141 might look backward again, but remember that x86 has little-endian architecture, so it's supposed to look that way. If you examine each of these four bytes individually, you can see how the memory is actually laid out. Ultimately, the program will treat this value as an integer, with a value of 16705.
+
+
 
 ----------------------------------------------------------------------------------------------------------
 
