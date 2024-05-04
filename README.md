@@ -122,20 +122,20 @@ The current payload is likely not long enough to reach and overwrite the return 
 there's an issue with the payload length in a software exploitation context, likely in the context of a buffer overflow attack. When exploiting a buffer overflow vulnerability, attackers typically attempt to overwrite the return address on the stack with a pointer to their malicious payload.
 
 
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/0f8fa5e4-ec4f-4cf4-ad27-5e947290d283)
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/dfdbb6e6-3e24-4b2e-ba99-7f3c5be7f834)
 
 
 ### Let's fix the code!
 
 Before code
 
-
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/dfdbb6e6-3e24-4b2e-ba99-7f3c5be7f834)
-
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/0f8fa5e4-ec4f-4cf4-ad27-5e947290d283)
 
 
+To address the buffer overflow vulnerability, replace the strcpy function with a safer alternative that limits the number of characters copied to prevent writing beyond the buffer size. A common choice for this is strncpy, which allows you to specify the maximum number of characters to copy.
 
-
-
+** Replaced strcpy with strncpy: The strncpy function is used instead of strcpy to copy only up to the size of the buffer minus one. This prevents overwriting beyond the allocated buffer size.
+** Null Termination: After using strncpy, it's important to manually ensure that the string is null-terminated because strncpy does not null-terminate if the source string is longer than the specified length.
 
 
