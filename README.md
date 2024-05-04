@@ -16,6 +16,20 @@ gcc -no-pie -g -fno-stack-protector -o auth_overflow2_fixed auth_overflow2_fixed
 
 The compiled files are built using -no-pie and -fno-stack-protector. Also, -g so that we can make debugging easier. Linux's ASLR is still enabled and for good reason, but for our purposes we can exploit this program now in a deterministic way using GDB. The first exploit is actually exploitable even without GDB just through command line.
 
+
+
+How I set it up for this project.
+
+WSL: Installing Necessary Tools such as gcc for compling gdb for debudding and python3 for the scripting in my WSL
+Using script named 'exploit_1.sh' that I will attempts to overflow the buffer.
+I am going to use Python to generate a long string and pass it to as an argument to the C program
+
+After I created a script in wsl as exploit_1.sh 
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/7377163b-f5a0-46e5-b5a9-ceb77c068b07)
+
+This should execute the script, and see the "Running buffer overflow test" printed in your terminal followed by any output or behavir from the 'auth_overflow' porgram, depending on how it handles the over flow
+
+
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/d17c4e24-c163-42e7-8e50-72dc6d3e031a)
 
 
