@@ -85,11 +85,18 @@ After
 Exploit_2.sh
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/51a6ffd2-7193-42b1-8ea6-059058d975c3)
 
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/58953a27-76be-4865-a45f-68dec4f96e71)
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/32ab4a1f-4623-48ff-8db1-f1c5d1d34c7b)
+
+buffer might be stored near the base pointer ($bp), rather than the stack pointer, given typical function call conventions. Let's examine memory around the base pointer and look for our sequence of 'A's
 
 Similar breakpoints are set, and an examination of memory shows that auth_flag is located before password_buffer in memory. This means auth_flag can never be overwritten by an overflow in password_buffer.
 
+Examine Memory: The command x/40x $rbp will display the memory around the base pointer. Look for a sequence of 0x41414141 which represents 'AAAA'. This will help us identify the start of your buffer.
+
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/a0a8aeb3-3c71-402d-ae56-b785be30290a)
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/5545e821-be95-489a-9521-2cd845dbca87)
+
 
 As expected, the overflow cannot disturb the auth_flag variable, since it's located before the buffer. But another execution control point does exist, even though you can't see it in the C code. It's conveniently located after all the stack variables, so it can easily be overwritten. This memory is integral to the operation of all programs, so it exists in all programs, and when it's overwritten, it usually results in a program crash.
 
@@ -97,6 +104,7 @@ As expected, the overflow cannot disturb the auth_flag variable, since it's loca
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/f2538cdc-2c70-4585-8bef-299eeca7842b)
 
 
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/553e00c8-0fdf-4f82-ac62-2c466e7423b9)
 
 
 ### Analyzing the GDB Output
