@@ -16,6 +16,9 @@ gcc -no-pie -g -fno-stack-protector -o auth_overflow2_fixed auth_overflow2_fixed
 
 The compiled files are built using -no-pie and -fno-stack-protector. Also, -g so that we can make debugging easier. Linux's ASLR is still enabled and for good reason, but for our purposes we can exploit this program now in a deterministic way using GDB. The first exploit is actually exploitable even without GDB just through command line.
 
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/d17c4e24-c163-42e7-8e50-72dc6d3e031a)
+
+
 
 
 
