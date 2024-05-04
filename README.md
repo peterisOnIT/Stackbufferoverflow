@@ -65,3 +65,5 @@ THE RIP register hold '0x401226' which indicate where the program is counter was
 The base pointer contains repeating pattern of '0x41414141414141' which is the ASCII prepresatination of 'A'. The stack pointer at '0x7fffffffde68' is showing where the stack was when the segmentation fault occured.
 
 The continuation of the memory dump shows your 'A's have overrun the buffer extensively, which is what you want when trying to manipulate the return address.
+'
+
