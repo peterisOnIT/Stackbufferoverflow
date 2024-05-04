@@ -37,14 +37,7 @@ Using script named 'exploit_1.sh' that I will attempts to overflow the buffer.
 I am going to use Python to generate a long string and pass it to as an argument to the C program
 
 
-
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/3e6ff594-7a8f-47dc-92fb-2773cf0b34de)
-
-This should execute the script, and see the "Running buffer overflow test" printed in your terminal followed by any output or behavir from the 'auth_overflow' porgram, depending on how it handles the over flow
-
-
-
-Next steps to exploit the vulnerability 
+exploit the vulnerability 
 
 I am going to debugging with GDB
 
