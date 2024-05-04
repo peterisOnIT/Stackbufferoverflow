@@ -36,7 +36,7 @@ WSL: Installing Necessary Tools such as gcc for compling gdb for debudding and p
 Using script named 'exploit_1.sh' that I will attempts to overflow the buffer.
 I am going to use Python to generate a long string and pass it to as an argument to the C program
 
-After I created a script in wsl as exploit_1.sh 
+
 
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/3e6ff594-7a8f-47dc-92fb-2773cf0b34de)
 
