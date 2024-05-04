@@ -37,12 +37,10 @@ Using script named 'exploit_1.sh' that I will attempts to overflow the buffer.
 I am going to use Python to generate a long string and pass it to as an argument to the C program
 
 After I created a script in wsl as exploit_1.sh 
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/7377163b-f5a0-46e5-b5a9-ceb77c068b07)
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/3e6ff594-7a8f-47dc-92fb-2773cf0b34de)
 
 This should execute the script, and see the "Running buffer overflow test" printed in your terminal followed by any output or behavir from the 'auth_overflow' porgram, depending on how it handles the over flow
-
-
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/d17c4e24-c163-42e7-8e50-72dc6d3e031a)
 
 
 
@@ -50,20 +48,32 @@ Next steps to exploit the vulnerability
 
 I am going to debugging with GDB
 
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/643f7d40-1ed0-4c9d-876f-06835e51e86f)
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/083d33e3-5152-4e3e-abc4-3f3fb092aa7a)
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/ea0a6fce-2488-4cc6-8fb0-409ef9cdd283)
 
 
 
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/660d22fe-66fc-4a6a-8909-e64ab082c972)
 
 
+The pointer password points to the buffer that has been overflowed with 16 'A's followed by "BBBB". This shows that the buffer overflow vulnerability. This kind of overflow can lead to various security risks including unauthorized access, execution of malicious code, and data corruption, depending on what memory areas are affected beyond the overwritten buffer.
 
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/7fa7a8fe-24d0-41ac-9874-0163b7fc0191)
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/804f81b3-dc69-44e0-b831-af5e16762dd9)
+----------------------------------------------------------------------------------------------------------
 
-THE RIP register hold '0x401226' which indicate where the program is counter was pointing when the crash occured. it shows address is within the 'check_authentication' fuction which crash happened there due to an attempt to excute corrupted data.
+# Check auth_overflow code
 
-The base pointer contains repeating pattern of '0x41414141414141' which is the ASCII prepresatination of 'A'. The stack pointer at '0x7fffffffde68' is showing where the stack was when the segmentation fault occured.
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/a5d965a1-ee87-4ff4-a6a4-503fbafb5fbc)
 
-The continuation of the memory dump shows your 'A's have overrun the buffer extensively, which is what you want when trying to manipulate the return address.
-'
+C program that includes a function vulnerable to a buffer overflow attack due to the unsafe use of strcpy.
+To fix the vulnerability in code, replace strcpy with a safer alternative like strncpy, which allows you to specify the maximum number of characters to copy.
+
+
+before
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/3cc34e6d-3a6c-4f12-a0b1-d5de049122ee)
+
+
+After 
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/078f292e-5d90-403e-b3b1-f80d143191a0)
 
