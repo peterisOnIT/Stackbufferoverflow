@@ -56,3 +56,12 @@ I am going to debugging with GDB
 
 
 
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/7fa7a8fe-24d0-41ac-9874-0163b7fc0191)
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/804f81b3-dc69-44e0-b831-af5e16762dd9)
+
+THE RIP register hold '0x401226' which indicate where the program is counter was pointing when the crash occured. it shows address is within the 'check_authentication' fuction which crash happened there due to an attempt to excute corrupted data.
+
+The base pointer contains repeating pattern of '0x41414141414141' which is the ASCII prepresatination of 'A'. The stack pointer at '0x7fffffffde68' is showing where the stack was when the segmentation fault occured.
+
+The continuation of the memory dump shows your 'A's have overrun the buffer extensively, which is what you want when trying to manipulate the return address.
