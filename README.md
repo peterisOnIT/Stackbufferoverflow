@@ -78,3 +78,7 @@ before
 After 
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/078f292e-5d90-403e-b3b1-f80d143191a0)
 
+
+----------------------------------------------------------------------------------------------------------
+
+# Auth Overflow 2
