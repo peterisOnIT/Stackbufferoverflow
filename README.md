@@ -139,3 +139,7 @@ To address the buffer overflow vulnerability, replace the strcpy function with a
 ** Null Termination: After using strncpy, it's important to manually ensure that the string is null-terminated because strncpy does not null-terminate if the source string is longer than the specified length.
 
 
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/734fcf5f-505f-4cba-ad1f-07c827006b70)
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/9d84b557-356b-4063-bdcf-4bd305cc6e47)
+
