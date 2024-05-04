@@ -46,6 +46,13 @@ This should execute the script, and see the "Running buffer overflow test" print
 
 
 
+Next steps to exploit the vulnerability 
+
+I am going to debugging with GDB
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/643f7d40-1ed0-4c9d-876f-06835e51e86f)
+
+
 
 
 
