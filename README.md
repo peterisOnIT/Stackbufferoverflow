@@ -85,16 +85,22 @@ After
 Exploit_2.sh
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/51a6ffd2-7193-42b1-8ea6-059058d975c3)
 
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/6545f0f0-72d7-4ac3-8814-8cacc89eb2fe)
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/58953a27-76be-4865-a45f-68dec4f96e71)
+
+Similar breakpoints are set, and an examination of memory shows that auth_flag is located before password_buffer in memory. This means auth_flag can never be overwritten by an overflow in password_buffer.
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/a0a8aeb3-3c71-402d-ae56-b785be30290a)
+
+As expected, the overflow cannot disturb the auth_flag variable, since it's located before the buffer. But another execution control point does exist, even though you can't see it in the C code. It's conveniently located after all the stack variables, so it can easily be overwritten. This memory is integral to the operation of all programs, so it exists in all programs, and when it's overwritten, it usually results in a program crash.
+
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/f2538cdc-2c70-4585-8bef-299eeca7842b)
+
+
+
 
 ### Analyzing the GDB Output
 
-- Password is pointing to a memory region filled predominantly with 'A' characters, followed by "BBBB", which seems intended to overwrite a return address or similar critical pointer.
-- The memory dump shows how the buffer password_buffer has been overwritten with these 'A's, and possibly adjacent memory as well.
-- rip (the instruction pointer) at 0x4011c6 points to where in the code the breakpoint was hit. This means the function has not returned yet, so the full impact of overwriting "BBBB" may not yet be visible in the instruction pointer.
-- rsp (the stack pointer) and other registers show where various pieces of data are relative to each other in memory.
-- The stack dump close to rsp shows repeated 0x7fffffff values, which is typical of stack frames.
-- The specific addresses that have been overwritten ('BBBB' and 'CCCC' are supposed to go here) don't clearly appear in the displayed stack segment, suggesting the current overflow attempt may not be reaching the critical areas of memory we intended to modify (like the return address).
 
 
 ### How this can be Exploit???
