@@ -121,6 +121,15 @@ The current payload is likely not long enough to reach and overwrite the return 
 
 there's an issue with the payload length in a software exploitation context, likely in the context of a buffer overflow attack. When exploiting a buffer overflow vulnerability, attackers typically attempt to overwrite the return address on the stack with a pointer to their malicious payload.
 
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/0f8fa5e4-ec4f-4cf4-ad27-5e947290d283)
+
+
+### Let's fix the code!
+
+Before code
+
+
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/dfdbb6e6-3e24-4b2e-ba99-7f3c5be7f834)
 
 
@@ -129,5 +138,4 @@ there's an issue with the payload length in a software exploitation context, lik
 
 
 
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/902c765f-08de-442c-b7b7-4a6ddb598d69)
 
