@@ -86,7 +86,7 @@ After
 Exploit_2.sh
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/51a6ffd2-7193-42b1-8ea6-059058d975c3)
 
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/c785d474-a429-47bf-bc5d-9fc888f4f695)
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/6545f0f0-72d7-4ac3-8814-8cacc89eb2fe)
 
 ### Analyzing the GDB Output
 
@@ -94,5 +94,14 @@ Exploit_2.sh
 - The memory dump shows how the buffer password_buffer has been overwritten with these 'A's, and possibly adjacent memory as well.
 - rip (the instruction pointer) at 0x4011c6 points to where in the code the breakpoint was hit. This means the function has not returned yet, so the full impact of overwriting "BBBB" may not yet be visible in the instruction pointer.
 - rsp (the stack pointer) and other registers show where various pieces of data are relative to each other in memory.
-- 
+- The stack dump close to rsp shows repeated 0x7fffffff values, which is typical of stack frames.
+- The specific addresses that have been overwritten ('BBBB' and 'CCCC' are supposed to go here) don't clearly appear in the displayed stack segment, suggesting the current overflow attempt may not be reaching the critical areas of memory we intended to modify (like the return address).
 
+
+### How this can be Exploit???
+The current payload is likely not long enough to reach and overwrite the return address on the stack
+![White-Cat-What-meme-1](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/7f16619b-0eab-4a3d-b0c8-3a87066817c7)
+
+What does that mean?
+
+there's an issue with the payload length in a software exploitation context, likely in the context of a buffer overflow attack. When exploiting a buffer overflow vulnerability, attackers typically attempt to overwrite the return address on the stack with a pointer to their malicious payload.
