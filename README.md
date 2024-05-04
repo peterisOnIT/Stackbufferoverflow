@@ -71,7 +71,8 @@ To fix the vulnerability in code, replace strcpy with a safer alternative like s
 
 
 before
-![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/1f7e85b3-bddf-4e59-8692-8227051ba759)
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/f9686746-46ae-4b53-bd5d-7ff3f8281aaf)
+
 
 
 
