@@ -18,6 +18,18 @@ The compiled files are built using -no-pie and -fno-stack-protector. Also, -g so
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 How I set it up for this project.
 
 WSL: Installing Necessary Tools such as gcc for compling gdb for debudding and python3 for the scripting in my WSL
