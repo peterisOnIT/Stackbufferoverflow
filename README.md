@@ -83,6 +83,9 @@ After
 
 # Auth Overflow 2
 
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/bf90515d-30f6-4a61-8b13-49d0822dda43)
+
+
 Exploit_2.sh
 ![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/51a6ffd2-7193-42b1-8ea6-059058d975c3)
 
@@ -99,9 +102,13 @@ Exploit_2.sh
 
 
 ### How this can be Exploit???
-The current payload is likely not long enough to reach and overwrite the return address on the stack
+The current payload is likely not long enough to reach and overwrite the return address on the stack. The strcpy function does not check the length of the destination buffer (password_buffer), so if the password argument passed to check_authentication is too long, it could overflow password_buffer, leading to unintended behavior, including overwriting critical data on the stack, such as the return address.
 ![White-Cat-What-meme-1](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/7f16619b-0eab-4a3d-b0c8-3a87066817c7)
 
 ### What does that mean?
 
 there's an issue with the payload length in a software exploitation context, likely in the context of a buffer overflow attack. When exploiting a buffer overflow vulnerability, attackers typically attempt to overwrite the return address on the stack with a pointer to their malicious payload.
+
+![image](https://github.com/peterisOnIT/Stackbufferoverflow/assets/117600297/dfdbb6e6-3e24-4b2e-ba99-7f3c5be7f834)
+
+
