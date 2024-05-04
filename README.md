@@ -94,4 +94,5 @@ Exploit_2.sh
 - The memory dump shows how the buffer password_buffer has been overwritten with these 'A's, and possibly adjacent memory as well.
 - rip (the instruction pointer) at 0x4011c6 points to where in the code the breakpoint was hit. This means the function has not returned yet, so the full impact of overwriting "BBBB" may not yet be visible in the instruction pointer.
 - rsp (the stack pointer) and other registers show where various pieces of data are relative to each other in memory.
+- 
 
